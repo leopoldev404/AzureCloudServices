@@ -1,10 +1,17 @@
-﻿using System.Runtime.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus.ViewModels
 {
+    [DataContract]
     public class ServiceBusEntryViewModel
     {
-        [DataMember(Name = "id")] public string Id { get; set; }
-        [DataMember(Name = "text")] public string Text { get; set; }
+        [Required]
+        [DataMember(Name = "id")]
+        public string Id { get; set; }
+
+        [Required]
+        [DataMember(Name = "text")]
+        public string Text { get; set; }
     }
 }

@@ -25,9 +25,12 @@ namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus
         {
             var json = entry.ToJson();
             _logger.Log(json);
-            
+
+            var obj = json.ToObject<ServiceBusEntryViewModel>();
+            _logger.Log(obj.Id);
+
             await _azureServiceBusService.SendMessage(json);
-            return Ok();
+            return Ok($"Message with Id: {obj.Id} has been delivered");
         }
     }
 }
