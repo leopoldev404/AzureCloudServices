@@ -23,14 +23,8 @@ namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus
         [HttpPost]
         public async Task<IActionResult> Send(ServiceBusEntryViewModel entry)
         {
-            var json = entry.ToJson();
-            _logger.Log(json);
-
-            var obj = json.ToObject<ServiceBusEntryViewModel>();
-            _logger.Log(obj.Id);
-
-            await _azureServiceBusService.SendMessage(json);
-            return Ok($"Message with Id: {obj.Id} has been delivered");
+            await _azureServiceBusService.SendMessage(entry.ToJson());
+            return Ok($"Message with Id: {entry.Id} has been delivered");
         }
     }
 }
