@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AzureCloudServices.Bll.Services.AzureRedisCache;
 using AzureCloudServices.Bll.Services.Logging;
 using AzureCloudServices.WebApi.Controllers.AzureRedisCache.ViewModels;
@@ -7,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AzureCloudServices.WebApi.Controllers.AzureRedisCache
 {
-    [ApiController]
+	[ApiController]
     [Route("api/v1/cache")]
     public class AzureRedisCacheExplorerController : ControllerBase
     {

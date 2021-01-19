@@ -17,6 +17,7 @@ namespace AzureCloudServices.WebApi.Installer
 
             services.AddSingleton<IQueueClient>(new QueueClient
                 (serviceBusParameters.ConnectionString, serviceBusParameters.Queue));
+
             services.AddSingleton(sp => serviceBusParameters);
             services.AddSingleton<IAzureServiceBusService, AzureServiceBusService>();
         }

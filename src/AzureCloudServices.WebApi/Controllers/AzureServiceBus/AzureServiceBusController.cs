@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Text.Unicode;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AzureCloudServices.Bll.Services.AzureServiceBus;
 using AzureCloudServices.Bll.Services.Logging;
 using AzureCloudServices.Bll.Utils;
 using AzureCloudServices.WebApi.Controllers.AzureServiceBus.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Amqp.Serialization;
 
 namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus
 {
@@ -22,7 +19,7 @@ namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus
             _azureServiceBusService = azureServiceBusService;
             _logger = logger;
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> Send(ServiceBusEntryViewModel entry)
         {
