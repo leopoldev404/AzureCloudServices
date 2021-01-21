@@ -14,9 +14,7 @@ namespace AzureCloudServices.WebApi.Installer
             {
                 opts.AssumeDefaultVersionWhenUnspecified = true;
                 opts.DefaultApiVersion = ApiVersion.Default;
-                // opts.DefaultApiVersion = new ApiVersion(2, 0);
             });
-            
             services.AddHealthChecks();
         }
     }
