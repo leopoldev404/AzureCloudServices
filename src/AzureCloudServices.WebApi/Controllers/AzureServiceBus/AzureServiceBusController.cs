@@ -13,7 +13,6 @@ namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus
     {
         private readonly IAzureServiceBusService _azureServiceBusService;
         private readonly ILogger _logger;
-        
         public AzureServiceBusController(IAzureServiceBusService azureServiceBusService, ILogger logger)
         {
             _azureServiceBusService = azureServiceBusService;
@@ -23,7 +22,7 @@ namespace AzureCloudServices.WebApi.Controllers.AzureServiceBus
         [HttpPost]
         public async Task<IActionResult> Send(ServiceBusEntryViewModel entry)
         {
-            await _azureServiceBusService.SendMessage(entry.ToJson());
+            await _azureServiceBusService.SendMessage(entry.GetJson());
             return Ok($"Message with Id: {entry.Id} has been delivered");
         }
     }
