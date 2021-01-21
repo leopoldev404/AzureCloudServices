@@ -1,4 +1,5 @@
-﻿using Azure.Storage.Blobs;
+﻿using System;
+using Azure.Storage.Blobs;
 using AzureCloudServices.Bll.Abstractions;
 using AzureCloudServices.Bll.Services.Logging;
 using System.Collections.Generic;
@@ -23,10 +24,14 @@ namespace AzureCloudServices.Dal.AzureStorage
 
 		public async Task<string> GetBlobAsync(string name)
 		{
-			var client = _containerClient.GetBlobClient(name);
-			var download = await client.DownloadAsync();
-			using var stream = new StreamReader(download.Value.Content);
-			return await stream.ReadToEndAsync();
+			try
+			{
+				var client = _containerClient.GetBlobClient(name);
+				var download = await client.DownloadAsync();
+				using var stream = new StreamReader(download.Value.Content);
+				return await stream.ReadToEndAsync();
+			}
+			catch (Exception ex) { return null; }
 		}
 
 		public async Task<IEnumerable<string>> ListBlobsAsync()

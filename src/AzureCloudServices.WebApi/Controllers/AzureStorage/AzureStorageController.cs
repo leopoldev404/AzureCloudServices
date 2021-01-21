@@ -19,14 +19,14 @@ namespace AzureCloudServices.WebApi.Controllers.AzureStorage
 		public async Task<IActionResult> Get(string name)
 		{
 			var response = await _azureStorageService.GetBlobAsync(name);
-			return response != null ? Ok(response) : NoContent();
+			return response != null ? Ok(response) : NotFound();
 		}
 
 		[HttpGet("list")]
 		public async Task<IActionResult> GetBlobs()
 		{
-			var list = await _azureStorageService.ListBlobsAsync();
-			return Ok(list);
+			var blobs = await _azureStorageService.ListBlobsAsync();
+			return Ok(blobs);
 		}
 	}
 }
