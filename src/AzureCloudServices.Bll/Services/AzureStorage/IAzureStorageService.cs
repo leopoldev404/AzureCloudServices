@@ -8,7 +8,7 @@ namespace AzureCloudServices.Bll.Services.AzureStorage
         Task<string> GetBlobAsync(string name);
         Task<IEnumerable<string>> ListBlobsAsync();
         Task UploadBlobAsync(string name, string path);
-        Task UploadContentBlobAsync(string name, string content);
+        Task UpdateBlobContentAsync(string name, string content);
         Task DeleteBlobAsync(string name);
     }
 }

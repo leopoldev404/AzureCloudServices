@@ -4,7 +4,9 @@ using AzureCloudServices.Bll.Abstractions;
 using AzureCloudServices.Bll.Services.Logging;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs.Models;
 
 namespace AzureCloudServices.Dal.AzureStorage
 {
@@ -31,13 +33,16 @@ namespace AzureCloudServices.Dal.AzureStorage
 				using var stream = new StreamReader(download.Value.Content);
 				return await stream.ReadToEndAsync();
 			}
-			catch (Exception ex) { return null; }
+			catch (Exception ex)
+			{
+				_logger.Log(ex);
+				return null;
+			}
 		}
 
 		public async Task<IEnumerable<string>> ListBlobsAsync()
 		{
 			var items = new List<string>();
-
 			await foreach (var item in _containerClient.GetBlobsAsync())
 			{
 				items.Add(item.Name);
@@ -45,19 +50,24 @@ namespace AzureCloudServices.Dal.AzureStorage
 			return items;
 		}
 
-		public Task UploadBlobAsync(string name, string path)
+		public async Task UploadBlobAsync(string name, string path)
 		{
-			throw new System.NotImplementedException();
+			var blobClient = _containerClient.GetBlobClient(name);
+			await blobClient.UploadAsync(path, new BlobHttpHeaders { ContentType = "application/octet-stream" });
 		}
 
-		public Task UploadContentBlobAsync(string name, string content)
+		public async Task UpdateBlobContentAsync(string name, string content)
 		{
-			throw new System.NotImplementedException();
+			var blobClient = _containerClient.GetBlobClient(name);
+			var bytes = Encoding.UTF8.GetBytes(content);
+			await using var stream = new MemoryStream(bytes);
+			await blobClient.UploadAsync(stream, new BlobHttpHeaders {ContentType = "application/octet-stream"});
 		}
 
-		public Task DeleteBlobAsync(string name)
+		public async Task DeleteBlobAsync(string name)
 		{
-			throw new System.NotImplementedException();
+			var client = _containerClient.GetBlobClient(name);
+			await client.DeleteIfExistsAsync();
 		}
 	}
 }

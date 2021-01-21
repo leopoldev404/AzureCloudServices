@@ -22,8 +22,8 @@ namespace AzureCloudServices.Bll.Services.AzureStorage
 		public async Task UploadBlobAsync(string name, string path)
 			=> await _azureStorageRepository.UploadBlobAsync(name, path);
 
-		public async Task UploadContentBlobAsync(string name, string content)
-			=> await _azureStorageRepository.UploadContentBlobAsync(name, content);
+		public async Task UpdateBlobContentAsync(string name, string content)
+			=> await _azureStorageRepository.UpdateBlobContentAsync(name, content);
 
 		public async Task DeleteBlobAsync(string name)
 			=> await _azureStorageRepository.DeleteBlobAsync(name);
