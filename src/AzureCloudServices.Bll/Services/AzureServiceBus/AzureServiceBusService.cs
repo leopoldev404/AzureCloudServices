@@ -7,12 +7,10 @@ namespace AzureCloudServices.Bll.Services.AzureServiceBus
     public class AzureServiceBusService : IAzureServiceBusService
     {
         private readonly IQueueClient _serviceBusClient;
-        private readonly AzureServiceBusParameters _azureServiceBusParameters;
-
-        public AzureServiceBusService(IQueueClient serviceBusClient, AzureServiceBusParameters azureServiceBusParameters)
+        
+        public AzureServiceBusService(IQueueClient serviceBusClient)
         {
             _serviceBusClient = serviceBusClient;
-            _azureServiceBusParameters = azureServiceBusParameters;
         }
 
         public async Task SendMessage(string body)

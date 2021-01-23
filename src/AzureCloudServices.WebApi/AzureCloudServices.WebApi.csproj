@@ -17,6 +17,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\AzureCloudServices.Bll\AzureCloudServices.Bll.csproj" />
+      <ProjectReference Include="..\AzureCloudServices.Dal.AzureRedisCache\AzureCloudServices.Dal.AzureRedisCache.csproj" />
+      <ProjectReference Include="..\AzureCloudServices.Dal.AzureStorage\AzureCloudServices.Dal.AzureStorage.csproj" />
       <ProjectReference Include="..\AzureCloudServices.Dal\AzureCloudServices.Dal.csproj" />
     </ItemGroup>
 

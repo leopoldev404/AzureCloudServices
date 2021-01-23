@@ -14,14 +14,11 @@ namespace AzureCloudServices.WebApi.Installer
 		{
 			var repoStorageParameters = new AzureStorageRepositoryParameters()
 			{
-				ConnecitonString = configuration["AzureStorageRepositorySettings:ConnectionString"],
+				Client = new BlobServiceClient(configuration["AzureStorageRepositorySettings:ConnectionString"]),
 				Container = configuration["AzureStorageRepositorySettings:Container"]
 			};
-
-			services.AddSingleton(sp => new BlobServiceClient
-				(repoStorageParameters.ConnecitonString));
-
-			services.AddSingleton(sp => repoStorageParameters);
+			
+			services.AddSingleton(repoStorageParameters);
 			services.AddSingleton<IAzureStorageService, AzureStorageService>();
 			services.AddSingleton<IAzureStorageRepository, AzureStorageRepository>();
 		}

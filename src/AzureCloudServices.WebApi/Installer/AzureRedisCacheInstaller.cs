@@ -13,14 +13,12 @@ namespace AzureCloudServices.WebApi.Installer
         {
             var repoParameters = new AzureRedisCacheRepositoryParameters()
             {
-                ConnectionString = configuration["AzureRedisCacheSettings:ConnectionString"],
                 DatabaseId = int.Parse(configuration["AzureRedisCacheSettings:DatabaseId"])
             };
 
-            services.AddSingleton<IConnectionMultiplexer>(sp =>
-                ConnectionMultiplexer.Connect(repoParameters.ConnectionString));
-
-            services.AddSingleton(sp => repoParameters);
+            services.AddSingleton<IConnectionMultiplexer>
+                (ConnectionMultiplexer.Connect(configuration["AzureRedisCacheSettings:ConnectionString"]));
+            services.AddSingleton(repoParameters);
             services.AddSingleton<IAzureRedisCacheService, AzureRedisCacheService>();
             services.AddSingleton<IAzureRedisCacheRepository, AzureRedisCacheRepository>();
         }

@@ -4,7 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCloudServices.WebApi",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCloudServices.Bll", "src\AzureCloudServices.Bll\AzureCloudServices.Bll.csproj", "{C242DDAE-CF51-482F-A944-63DD142BFCFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCloudServices.Dal", "src\AzureCloudServices.Dal\AzureCloudServices.Dal.csproj", "{5F35BB0E-C0B8-4E4A-8DB7-B854BFCBF48C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCloudServices.Dal.AzureStorage", "src\AzureCloudServices.Dal.AzureStorage\AzureCloudServices.Dal.AzureStorage.csproj", "{F4A26257-F595-4F77-85D4-B57046D0EC4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCloudServices.Dal.AzureRedisCache", "src\AzureCloudServices.Dal.AzureRedisCache\AzureCloudServices.Dal.AzureRedisCache.csproj", "{084A7C6D-D7E2-4678-9BAB-E66F93434C5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +22,13 @@ Global
 		{C242DDAE-CF51-482F-A944-63DD142BFCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C242DDAE-CF51-482F-A944-63DD142BFCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C242DDAE-CF51-482F-A944-63DD142BFCFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F35BB0E-C0B8-4E4A-8DB7-B854BFCBF48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F35BB0E-C0B8-4E4A-8DB7-B854BFCBF48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F35BB0E-C0B8-4E4A-8DB7-B854BFCBF48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F35BB0E-C0B8-4E4A-8DB7-B854BFCBF48C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A26257-F595-4F77-85D4-B57046D0EC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A26257-F595-4F77-85D4-B57046D0EC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A26257-F595-4F77-85D4-B57046D0EC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A26257-F595-4F77-85D4-B57046D0EC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{084A7C6D-D7E2-4678-9BAB-E66F93434C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{084A7C6D-D7E2-4678-9BAB-E66F93434C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{084A7C6D-D7E2-4678-9BAB-E66F93434C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{084A7C6D-D7E2-4678-9BAB-E66F93434C5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

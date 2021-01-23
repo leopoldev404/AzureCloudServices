@@ -12,16 +12,13 @@ namespace AzureCloudServices.Dal.AzureStorage
 {
 	public class AzureStorageRepository : IAzureStorageRepository
 	{
-		private readonly ILogger _logger;
-		private readonly AzureStorageRepositoryParameters _repositoryParameters;
 		private readonly BlobContainerClient _containerClient;
+		private readonly ILogger _logger;
 		
-
-		public AzureStorageRepository(ILogger logger, BlobServiceClient client, AzureStorageRepositoryParameters repositoryParameters)
+		public AzureStorageRepository(AzureStorageRepositoryParameters repositoryParameters, ILogger logger)
 		{
+			_containerClient = repositoryParameters.Client.GetBlobContainerClient(repositoryParameters.Container);
 			_logger = logger;
-			_repositoryParameters = repositoryParameters;
-			_containerClient = client.GetBlobContainerClient(repositoryParameters.Container);
 		}
 
 		public async Task<string> GetBlobAsync(string name)

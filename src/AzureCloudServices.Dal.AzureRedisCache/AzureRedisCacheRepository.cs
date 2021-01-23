@@ -9,9 +9,9 @@ namespace AzureCloudServices.Dal.AzureRedisCache
         private readonly IConnectionMultiplexer _connectionMultiplexer;
         private readonly AzureRedisCacheRepositoryParameters _repositoryParameters;
         
-        public AzureRedisCacheRepository(IConnectionMultiplexer connectionMultiplexer, AzureRedisCacheRepositoryParameters repositoryParameters)
+        public AzureRedisCacheRepository(IConnectionMultiplexer multiplexer, AzureRedisCacheRepositoryParameters repositoryParameters)
         {
-            _connectionMultiplexer = connectionMultiplexer;
+            _connectionMultiplexer = multiplexer;
             _repositoryParameters = repositoryParameters;
         }
         
