@@ -1,6 +1,4 @@
-﻿using StackExchange.Redis;
-
-namespace AzureCloudServices.Dal.AzureRedisCache
+﻿namespace AzureCloudServices.Dal.AzureRedisCache
 {
     public class AzureRedisCacheRepositoryParameters
     {

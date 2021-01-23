@@ -4,7 +4,6 @@ using AzureCloudServices.Bll.Services.AzureStorage;
 using AzureCloudServices.Dal.AzureStorage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace AzureCloudServices.WebApi.Installer
 {

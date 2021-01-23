@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Azure.Storage.Blobs;
+﻿using Azure.Storage.Blobs;
 
 namespace AzureCloudServices.Dal.AzureStorage
 {
