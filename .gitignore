@@ -1,12 +1,10 @@
 ## C# Development with any ide gitignore file
 
-
 # Exclude Configurations File
-src/AzureCloudServices.WebApi/appsettings.Development.jso
-src/AzureCloudServices.WebApi/appsettings.Production.json
-src/AzureCloudServices.WebApi/appsettings.Staging.json
-src*AzureCloudServices.WebApi/appsettings.json
-
+*appsettings.Development.jso
+*appsettings.Production.json
+*appsettings.Staging.json
+*appsettings.json
 
 *.rsuser
 *.suo
