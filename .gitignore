@@ -2,10 +2,10 @@
 
 
 # Exclude Configurations File
-src/*/appsettings.Development.jso
-src/*/appsettings.Production.json
-src/*/appsettings.Staging.json
-src*/appsettings.json
+src/AzureCloudServices.WebApi/appsettings.Development.jso
+src/AzureCloudServices.WebApi/appsettings.Production.json
+src/AzureCloudServices.WebApi/appsettings.Staging.json
+src*AzureCloudServices.WebApi/appsettings.json
 
 
 *.rsuser
